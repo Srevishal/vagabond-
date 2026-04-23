@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vagabond | India Travel Planner</title>
+    <meta name="description" content="A high-end travel planner tailored for the Indian market.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Vagabond<span>.</span></div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Curate Your Indian Journey</h1>
+            <p>Select your vibe and budget to generate a custom-tailored itinerary.</p>
+            
+            <div class="trip-config-panel">
+                <div class="input-group" style="grid-column: 1 / -1; border-bottom: 1px solid #E5E7EB; padding-bottom: 1rem; margin-bottom: 0.5rem;">
+                    <label for="apiKey" style="color: #00609C;">Gemini API Key (Optional for AI generation)</label>
+                    <input type="password" id="apiKey" placeholder="Paste Gemini key here or leave blank for local mode...">
+                </div>
+                <div class="input-group">
+                    <label for="fromLocation">From (City)</label>
+                    <input type="text" id="fromLocation" placeholder="e.g., Delhi, Mumbai">
+                </div>
+                <div class="input-group">
+                    <label for="destination">To (Destination)</label>
+                    <input type="text" id="destination" placeholder="e.g., Munnar, Manali">
+                </div>
+                <div class="input-group">
+                    <label for="days">Duration (Days)</label>
+                    <input type="number" id="days" min="1" value="5">
+                </div>
+                <div class="input-group">
+                    <label for="people">People</label>
+                    <input type="number" id="people" min="1" value="2">
+                </div>
+                <button id="generateBtn" class="generate-btn">Generate Plan</button>
+            </div>
+            <div id="costDisplay" class="cost-display hidden"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Vibe Engine -->
+        <section class="vibe-engine" id="vibeEngine">
+            <h2>The Vibe Engine</h2>
+            <div class="vibe-cards">
+                <div class="vibe-card active" data-vibe="heritage">
+                    <div class="vibe-icon">🏛️</div>
+                    <h3>Heritage</h3>
+                    <p>Temples, history, and culture.</p>
+                </div>
+                <div class="vibe-card" data-vibe="nature">
+                    <div class="vibe-icon">🌲</div>
+                    <h3>Nature</h3>
+                    <p>Wildlife, mountains, and greenery.</p>
+                </div>
+                <div class="vibe-card" data-vibe="backpacking">
+                    <div class="vibe-icon">🎒</div>
+                    <h3>Backpacking</h3>
+                    <p>Adventure, trails, and hostels.</p>
+                </div>
+                <div class="vibe-card" data-vibe="luxury">
+                    <div class="vibe-icon">✨</div>
+                    <h3>Luxury</h3>
+                    <p>Resorts, spas, and relaxation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Budget Toggle -->
+        <section class="budget-section">
+            <h2>Your Budget</h2>
+            <div class="budget-toggle" id="budgetToggle">
+                <button class="budget-btn active" data-budget="budget">Budget</button>
+                <button class="budget-btn" data-budget="comfort">Comfort</button>
+                <button class="budget-btn" data-budget="elite">Elite</button>
+            </div>
+        </section>
+
+        <!-- Itinerary View -->
+        <section class="itinerary-section">
+            <h2>Detailed Itinerary</h2>
+            <div class="itinerary-container" id="itineraryContainer">
+                <!-- Dynamic content will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
